@@ -45,7 +45,8 @@ WHERE cust_balance < cust_limit;
 SELECT cust_id, cust_name FROM customer
 WHERE cust_balance < cust_limit AND rep_id = '237';
 -- 16.	Display the id, the description, and the total value of each product whose number of items is greater than the average number of items for all products. You may want to use a subquery.
-
+SELECT prod_id, prod_desc, prod_quantity * prod_price FROM product
+WHERE prod_quantity > (SELECT AVG(prod_quantity)) FROM product;
 -- 17.	Display the balance of the customer whose balance is the smallest.
 SELECT cust_id, cust_name FROM customer
 ORDER BY cust_balance;
